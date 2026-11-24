@@ -8,6 +8,11 @@
 #include "behaviours.dtsi"
 #include "common.dtsi"
 
+&{/combos} {
+    /delete-node/ combo_v;
+    /delete-node/ combo_j;
+};
+
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
 };
@@ -18,16 +23,16 @@
 
         // ╔═══════════════════════════════════════════════════════════════════════════╗
         // ║                         DEFAULT LAYER (Mac)                               ║
-        // ║  Colemak-DH base layout with home row mods                                ║
+        // ║  QWERTY base layout with home row mods                                    ║
         // ╚═══════════════════════════════════════════════════════════════════════════╝
         default {
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y         &apos_dqt
+             &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &hml LCTRL A  &hml LALT R   &hml LGUI S   &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr RGUI E   &hmr LALT I   &hmr RCTRL O
+             &hml LCTRL A  &hml LALT S   &hml LGUI D   &hml LSHFT F  &kp G             &kp H         &hmr RSHFT J  &hmr RGUI K   &hmr LALT L   &hmr RCTRL SEMI
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &lt 7 Z       &hml MEH X    &hml HYP C    &kp D         &kp V             &kp K         &kp H      &hmr HYP COMMA   &hmr MEH DOT &lt 7 NB_MINUS
+             &lt 7 Z       &hml MEH X    &hml HYP C    &kp V         &kp B             &kp N         &kp M      &hmr HYP COMMA   &hmr MEH DOT &lt 7 FSLH
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                        &lt_spcesc 2 0 &blt 5 TAB       &lt 6 ENTER   &lt_bspc 4 0
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -38,16 +43,16 @@
 
         // ╔═══════════════════════════════════════════════════════════════════════════╗
         // ║                       WINDOWS LAYER                                       ║
-        // ║  Same as Mac but uses Windows-specific quote behavior                     ║
+        // ║  QWERTY base layout for Windows                                           ║
         // ╚═══════════════════════════════════════════════════════════════════════════╝
         win {
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y         &apos_dqt_win
+             &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &hml LCTRL A  &hml LALT R   &hml LGUI S   &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr RGUI E   &hmr LALT I   &hmr RCTRL O
+             &hml LCTRL A  &hml LALT S   &hml LGUI D   &hml LSHFT F  &kp G             &kp H         &hmr RSHFT J  &hmr RGUI K   &hmr LALT L   &hmr RCTRL SEMI
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &lt 7 Z       &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &kp COMMA     &kp DOT       &lt 7 NB_MINUS
+             &lt 7 Z       &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &lt 7 FSLH
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                        &lt_spcesc 3 0 &blt 5 TAB       &lt 6 ENTER   &lt_bspc 4 0
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -67,7 +72,7 @@
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &hml LCTRL NB_PRCNT &hml LALT NB_DLLR &hml LGUI NB_FSLH &hml LSHFT NB_AMPS &tog 4   &kp NB_PLUS   &kp N4   &kp N5   &kp N6        &kp NB_EQUAL
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &sys_reset &hml MEH NB_BSLH &hml HYP LG(C) &kp LG(V)     &none           &kp NB_PIPE   &kp N1        &kp N2        &kp N3        &kp NB_PLUS
+             &sys_reset &hml MEH NB_BSLH &hml HYP LG(C) &kp LG(V)     &apos_dqt       &kp NB_PIPE   &kp N1        &kp N2        &kp N3        &kp NB_PLUS
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                        &none         &none             &kp DOT       &kp N0
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -87,7 +92,7 @@
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &hml LCTRL WNB_PRCNT &hml LALT WNB_DLLR &hml LGUI WNB_FSLH &hml LSHFT WNB_AMPS &tog 4  &kp WNB_PLUS  &kp N4        &kp N5        &kp N6        &kp NB_EQUAL
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &sys_reset    &kp WNB_BSLH  &kp LS(C)     &kp LC(V)     &none             &kp WNB_PIPE  &kp N1        &kp N2        &kp N3        &kp NB_LT
+             &sys_reset    &kp WNB_BSLH  &kp LS(C)     &kp LC(V)     &apos_dqt_win     &kp WNB_PIPE  &kp N1        &kp N2        &kp N3        &kp NB_LT
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                        &none         &none             &kp DOT       &kp N0
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯

@@ -1,8 +1,5 @@
 include:
   - board: nice_nano//zmk
-    shield: charybdis_dongle
-
-  - board: nice_nano//zmk
     shield: charybdis_left
 
   - board: nice_nano//zmk
@@ -21,8 +18,4 @@ include:
 
   - board: xiao_ble//zmk
     shield: visorbearer
-    snippet: studio-rpc-usb-uart
-
-  - board: xiao_ble//zmk
-    shield: charybdis_dongle prospector_adapter
     snippet: studio-rpc-usb-uart

@@ -21,12 +21,16 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 4de313367288aad5aeaa1243890e40dc813f7008
       import: app/west.yml
 
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: main
+      revision: 44b4a76b74d293a93cec4ccb7e04cb8d29c10f93
+
+    - name: zmk-driver-pmw3360
+      url: https://github.com/george-norton/zmk-driver-pmw3360
+      revision: 0dfa2f0411b795613a35f222f993e45a1e4cc32a
 
     - name: zmk-dongle-display
       remote: englmaxi
